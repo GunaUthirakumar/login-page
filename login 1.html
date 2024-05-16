@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Javascript Login Form Validation</title>
+<!-- Include CSS File Here -->
+
+<!-- Include JS File Here -->
+<script>
+var attempt = 3; // Variable to count number of attempts.
+    // Below function Executes on click of login button.
+    function validate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if ( username == "guna" && password == "guna123"){
+    alert ("Login successfully");
+    window.location = "https://www.google.com/about/careers/applications/profile" // Redirecting to other page.
+    return false;
+    }
+    else{
+    attempt --;// Decrementing by one.
+    alert("You have left "+attempt+" attempt;");
+    // Disabling fields after 3 attempts.
+    if( attempt == 0){
+    document.getElementById("username").disabled = true;
+    document.getElementById("password").disabled = true;
+    document.getElementById("submit").disabled = true;
+    return false;
+    }
+    }
+    }
+	</script>
+<style>
+    body {
+	background-color:rgba(156, 44, 187, 0.521);
+
+}
+
+.container {
+	width: 400px;
+	margin: 40px auto;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: rgb(233, 233, 233);
+	backdrop-filter: blur(50px);
+	border: none;
+    
+}
+
+h2 {
+	color: rgba(103, 21, 170, 0.5);
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 25px;
+}
+
+input[type="text"], input[type="password"] {
+	width: 70%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<h2>login page</h2>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span>
+</div>
+</div>
+</body>
+</html>
